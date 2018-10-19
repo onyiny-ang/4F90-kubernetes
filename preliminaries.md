@@ -24,3 +24,18 @@ We might need to compromise on an approach.
 
 #### Mixed Workloads on Kube
 
+
+### Non-expert Opinion:
+
+There may be some options but they will each require a fair amount of work:
+- Try some franken-architecture that will not be optimal but will hopefully run
+  Kubernetes (ie. Use Singularity to deploy Kubernetes on SLURM. . .)
+
+- Use the public cloud (GCE, AWS, Azure)
+- Compare each of these approaches?
+- Abandon this idea or refocus the efforts
+- Kubernetes can run SLURM--could also make infrastructure more versatile but
+  is it worth it to try to prove this?
+- Just because it's theorhetically possible to do these things, it doesn't mean
+  that it's well tested or understood so I could get stuck down a dark well
+  just trying to get the darn thing to work if we go for a frankenarchitecture.
