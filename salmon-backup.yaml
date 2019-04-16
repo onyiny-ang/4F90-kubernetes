@@ -1,0 +1,62 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: salmon-berlin52
+spec:
+  # run the salmon algorithm as TSP with Berlin 52
+  entrypoint: salmon
+  templates:
+  - name: salmon
+    steps:
+    - - name: seed
+        template: gen-random-seed
+    - - name: run
+        template: salmon-berlin
+        arguments:
+          parameters:
+          - name: rand-seed
+            value: "{{steps.seed.outputs.result}}"
+    - - name: print
+        template: print-output
+        arguments:
+          parameters:
+          - name: message
+            value: "{{steps.run.outputs.parameters.output}}"
+      #  withParam: "{{steps.salmon-berlin.outputs.parameters}}"  # The result of the here-script
+
+  - name: gen-random-seed
+    script:
+      image: python:alpine3.6
+      command: [python]
+      source: |
+        import random
+        i = random.randint(1,100)
+        print(i)
+
+  - name: salmon-berlin
+    inputs:
+      parameters:
+      - name: rand-seed
+    container:
+      image: quay.io/onyiny_ang/salmon-tsp:berlin-canary
+      command: [sh, -xc]
+      args:
+      - |
+        echo {{inputs.parameters.rand-seed}} > /SalmonTSP/randomseed.txt
+        cd /SalmonTSP
+        ./Salmon > /tmp/output
+    outputs:
+      parameters:
+      - name: output
+        valueFrom:
+          path: /tmp/output
+
+  - name: print-output
+    inputs:
+      parameters:
+      - name: message       # parameter declaration
+    container:
+      image: alpine:latest
+      command: [sh, -c]
+      args: ["echo result was:{{inputs.parameters.message}}"]
+
