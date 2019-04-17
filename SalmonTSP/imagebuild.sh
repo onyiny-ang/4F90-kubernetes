@@ -29,20 +29,8 @@ cd "$base_dir" || {
 cd ${base_dir}
 
 export REGISTRY=quay.io/
-temp_dir="build/temp"
-mkdir -p ${temp_dir}
-
-echo "Copy salmon files"
-
-#cp ${base_dir}/SalmonTSP/berlin52.txt ${temp_dir}/berlin52.txt
-#cp ${base_dir}/SalmonTSP/*cpp ${temp_dir}/
-#cp ${base_dir}/SalmonTSP/*h ${temp_dir}/
-#cp ${base_dir}/SalmonTSP/randomseed.txt ${temp_dir}/randomseed.txt
 
 echo "Building Salmon docker image"
-
-#For testing purposes
-
-echo "Pushing images with default tags (git sha and 'canary')."
 docker build -f ${dockerfile_dir} -t ${REGISTRY}onyiny_ang/salmon-tsp:berlin-canary .
+echo "Pushing images with default tags (git sha and 'canary')."
   docker push ${REGISTRY}onyiny_ang/salmon-tsp:berlin-canary
