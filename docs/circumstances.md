@@ -3,7 +3,7 @@
 ## Project as an Undergraduate Credit
 
 This research was undertaken as a [4th year full credit research project](https://www.cosc.brocku.ca/Offerings/4F90/)
-counting towards completion of a Bachelor of Science in Computer Science at
+counting towards completion of a Bachelor of Science in Computer Science from
 Brock University. As specified, the project proposal is as follows:
 
 ```
@@ -14,11 +14,31 @@ Supervisor: Dr. Sheridan Houghten, Computer Science
 Hardware: Compute Canada RAS allocation (maximum RAS amount for cores,
 instances and RAM, 5 networks, 5 routers, 5 IPS), personal computer to login to
 the instance
-Software: C++, yaml, python, bash, Kubernetes, Docker, Argo, Kubespray, Terraform, Ansible, Openstack
+Software: C++, yaml, python, bash, Kubernetes, Docker, Argo, Kubespray, Terraform,
+Ansible, Openstack
 
 Description:
-Academic research computing is at a precipice. Infrastructure has been paintakingly designed for high performance processing of classic "job" workloads in a highly parallelized system.  With the growth of new workflow practices such as streaming data, science gateways, and more “dynamic” research using lambda-like functions, academic research infrastructure is being pushed to support a variety of workloads that aren't optimized for the existing infrastructure. Several solutions have developed over recent years to address the change in demands (Charlie Cloud, Singularity)\cite{kurtzer_singularity:_2017}\cite{priedhorsky_charliecloud:_nodate}, each with their own strengths and pitfalls.
-Kubernetes, is an opensource container orchestration tool that has gained wide popularity in the industry. Based on Google's internal tool Borg, it was released as an opensource tool in 2011 and has become the industry standard for container orchestration. Becaues of it's wide appeal and cloud agnosticism, investigating the usefulness of Kubernetes for research purposes has merit. It has been shown to have success in the machine learning and AI space and is even paramount in running jobs from the Large Hadron collider through CERN. It seems that Kubernetes could help academic research computing effectively manage and provide solutions for the changing needs of researchers, but at what cost? This paper will investigate Kubernetes repurposed as a research tool, test it's effectiveness for running Bioinformatics algorithms and give a broad synopsis of it's utility for research computing. It will also outline painpoints that are known and that were encountered throughout the investigation.
+Academic research computing is at a precipice. Infrastructure has been paintakingly
+designed for high performance processing of classic "job" workloads in a highly
+parallelized system.  With the growth of new workflow practices such as streaming
+data, science gateways, and more “dynamic” research using lambda-like functions,
+academic research infrastructure is being pushed to support a variety of workloads
+that aren't optimized for the existing infrastructure. Several solutions have developed
+over recent years to address the change in demands (Charlie Cloud, Singularity)[1][2],
+each with their own strengths and pitfalls.
+
+Kubernetes, is an opensource container orchestration tool that has gained wide
+popularity in the industry. Based on Google's internal tool Borg, it was released as an
+opensource tool in 2011 and has become the industry standard for container orchestration.
+Becaues of it's wide appeal and cloud agnosticism, investigating the usefulness of
+Kubernetes for research purposes has merit. It has been shown to have success in the
+machine learning and AI space and is even paramount in running jobs from the Large Hadron
+Collider through CERN. It seems that Kubernetes could help academic research computing
+effectively manage and provide solutions for the changing needs of researchers, but
+at what cost? This paper will investigate Kubernetes repurposed as a research tool,
+test it's effectiveness for running Bioinformatics algorithms and give a broad synopsis
+of it's utility for research computing. It will also outline painpoints that are known
+and that were encountered throughout the investigation.
 ```
 
 ## Research under a Canadian Principal Investigator
@@ -51,12 +71,16 @@ openstack interface and access to the RAS allocated resources on openstack.
 Users will be able to create virtual machines with root privileges and use this to launch a Kubernetes deployment with tools like
 [kubespray](https://github.com/kubernetes-sigs/kubespray), [terraform](https://github.com/hashicorp/terraform) and [ansible](https://www.ansible.com/).
 
-There are situations where this may make sense (for example: exploring
-Kubernetes or creating a proof of concept), but it is very likely much more
-time consuming than it is worth to get Kubernetes up and running as an
-individual researcher without extensive experience or connections to the
-Kubernetes community.
+There are situations where launching a Kubernetes deployment on bare metal may make sense
+(for example: in order to keep sensitive data on premise, exploring Kubernetes or creating
+a proof of concept that specifically involves running Kubernetes on bare metal or if you are financially
+unable to use the public cloud (at present GKE offers $400 CAD credit for a 1
+year period which should be sufficient for a relatively short, resource non-intensive research project),
+but it is very likely much more time consuming than it is worth to get Kubernetes up and running as
+an individual researcher without extensive experience or connections to the Kubernetes community.
+
 Ideally, Kubernetes will already be running and someone with expertise will be managing
-the system so researchers can focus on developing and containerizing algorithms, and workflows--which has its own learning curve.
+the system so researchers can focus on developing and containerizing algorithms, and workflows--which
+has its own learning curve.
 
 
