@@ -46,7 +46,10 @@ and that were encountered throughout the investigation.
 As quoted in the Compute Canada Research Portal [access policy](https://www.computecanada.ca/research-portal/accessing-resources/access-policy/):
 
 ```
-Compute Canada’s national platform of systems and services is accessible to all Canadian researchers. Compute Canada facilities are designated for Canadian researchers, or those collaborating on Canadian research projects, with significant advanced research computing (ARC) requirements.
+Compute Canada’s national platform of systems and services is accessible to all Canadian
+researchers. Compute Canada facilities are designated for Canadian researchers, or those
+collaborating on Canadian research projects, with significant advanced research computing
+(ARC) requirements.
 
 ```
 
