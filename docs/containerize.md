@@ -1,0 +1,1 @@
+I found [this](https://amytabb.com/ts/2018_07_28/#hello-world-with-arguments) article by Amy Tabb to be helpful in configuring the Dockerfile and eventually created an automated CI/CD workflow using travis to build a number of salmon containers to work with an Argo event workflow. That work can be found in my [salmon repo](https://github.com/onyiny-ang/salmon).
