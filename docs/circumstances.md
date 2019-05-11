@@ -54,25 +54,13 @@ collaborating on Canadian research projects, with significant advanced research 
 ```
 
 Academic Principal Investigators are able to sponser students to request
-Resource Allocation through competitions [RAC](https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/) and Rapid Access Service [RAS](https://www.computecanada.ca/research-portal/accessing-resources/rapid-access-service/) for a modest amount of storage and cloud resources. This project required a RAS request with the maximum RAS allocation (maximum RAS amount for cores,
-instances and RAM, 5 networks, 5 routers, 5 IPS)
-[Dr. Sheridan Houghten](https://www.cosc.brocku.ca/~houghten/) is a faculty
+Resource Allocation through competitions [RAC](https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/) and Rapid Access Service [RAS](https://www.computecanada.ca/research-portal/accessing-resources/rapid-access-service/) for a modest amount of storage and cloud resources. This project required a [RAS request](resources.md) with the maximum RAS allocation (maximum RAS amount for cores, instances and RAM, 5 networks, 5 routers, 5 IPS). [Dr. Sheridan Houghten](https://www.cosc.brocku.ca/~houghten/) is a faculty
 member of Brock University and acted as the Academic Principal Investigator for this
-project. This provided access, free of charge, to compute and storage resources and services,
-including access to advanced computing experts made available by Compute
+project. This provided access, free of charge, to compute and storage resources and services, including access to advanced computing experts made available by Compute
 Canada.
 
-## Research using a Compute Canada RAS
-
-The RAS was provided through WestGrid's [Arbutus cloud](https://www.westgrid.ca/support/systems/arbutus) which operates out of the
-University of Victoria. Through the [VISPA](https://www.uvic.ca/science/physics/vispa/) research center and ATLAS group at the University of Victoria, there is some research into the utility of Kubernetes, particularly as it pertains to processing filtered data from the Large Hadron Collider at CERN. This research is particular to the ATLAS specific use case and it is unclear at what level Compute Canada will be adopting Kubernetes going forward.
-At present, researchers interested in Kubernetes and provided a RAS to experiment on
-Arbutus, will be given access to the Arbutus cloud login (which will be the
-same as the login on other Compute Canada systems). There are instructions for
-Compute Canada's cloud resources [here](https://docs.computecanada.ca/wiki/Cloud). This will provide an
-openstack interface and access to the RAS allocated resources on openstack.
-Users will be able to create virtual machines with root privileges and use this to launch a Kubernetes deployment with tools like
-[kubespray](https://github.com/kubernetes-sigs/kubespray), [terraform](https://github.com/hashicorp/terraform) and [ansible](https://www.ansible.com/).
+For more information on using a Compute Canada RAS, see the
+[Resources](resources.md) documentation.
 
 There are situations where launching a Kubernetes deployment on bare metal may make sense
 (for example: in order to keep sensitive data on premise, exploring Kubernetes or creating
@@ -84,6 +72,4 @@ an individual researcher without extensive experience or connections to the Kube
 
 Ideally, Kubernetes will already be running and someone with expertise will be managing
 the system so researchers can focus on developing and containerizing algorithms, and workflows--which
-has its own learning curve.
-
-
+has its own learning curve, but is much more beneficial to invest time in learning.
