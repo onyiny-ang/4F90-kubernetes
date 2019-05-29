@@ -15,6 +15,8 @@ This involves several steps:
 
 [Creating a workflow with Argo](docs/argo.md)
 
+[CI/CD Integration with Kubernetes](docs/ci-cd-pipeline.md)
+
 All of these steps are specific to a particular [set of circumstances](docs/circumstances.md), but it is
 hoped that this POC will prove useful to other
 researchers or professionals considering the use of Kubernetes to create

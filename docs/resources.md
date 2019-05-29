@@ -1,5 +1,7 @@
 # Requesting Resources from Compute Canada
 
+The PI for your project will need to request resources on your behalf. This can
+be done by:
 
 ## Research using a Compute Canada RAS
 

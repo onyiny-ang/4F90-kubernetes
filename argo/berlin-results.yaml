@@ -49,21 +49,16 @@ spec:
     container:
       image: quay.io/onyiny_ang/salmon-tsp:berlin-canary
       command: [sh, -xc]
-      args: 
+      args:
       - |
         R='{{inputs.parameters.rand-seed}}';
         echo $R > /SalmonTSP/randomseed.txt
         cd /SalmonTSP
-        ./Salmon | tee -a /mnt/vol/$R-salmon
-        mv salmon1.txt /mnt/vol/$R-salmon.txt
+        ./Salmon | tee -a /mnt/vol/$R-berlin
+        mv salmon1.txt /mnt/vol/$R-berlin.txt
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol
-#    outputs:
-#      parameters:
-#      - name: output
-#        valueFrom:
-#          path: /SalmonTSP/salmon1.txt
 
   - name: process-results
     inputs:
@@ -84,7 +79,7 @@ spec:
         seedtrack = ""
         total = 0
         for r in {{inputs.parameters.rand-seed}}:
-          filename = str(r)+"-salmon.txt"
+          filename = str(r)+"-berlin.txt"
           try:
             with open(filename) as f:
               value = float(f.readline().split().pop())
@@ -93,12 +88,12 @@ spec:
                 seedtrack = str(r)
               total+=value
           except:
-            print("Failed to open "+str(r)+"-salmon.txt")
+            print("Failed to open "+str(r)+"-berlin.txt")
         average = total/(len({{inputs.parameters.rand-seed}}))
-        copyfile(seedtrack+"-salmon.txt", "result.txt")
+        copyfile(seedtrack+"-berlin.txt", "result.txt")
         with open('result.txt', 'a') as g:
-          g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
-          g.close()          
+            g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
+          g.close()
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol

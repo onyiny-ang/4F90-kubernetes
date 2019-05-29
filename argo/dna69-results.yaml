@@ -1,0 +1,109 @@
+apiVersion: argoproj.io/v2alpha1
+kind: Workflow
+metadata:
+  generateName: salmon-dna69
+spec:
+  # run the salmon algorithm as TSP with DNA 69
+  entrypoint: salmon
+  arguments:
+    parameters:
+    - name: iterations
+      value: 30
+  volumes:
+  - name: workdir
+    persistentVolumeClaim:
+      claimName: salmon-volume
+  templates:
+  - name: salmon
+    steps:
+    - - name: seed
+        template: gen-random-seed
+    - - name: run
+        template: salmon-dna69
+        arguments:
+          parameters:
+          - name: rand-seed
+            value: "{{item}}"
+        withParam: "{{steps.seed.outputs.result}}"
+    - - name: process
+        template: process-results
+        arguments:
+          parameters:
+          - name: rand-seed
+            value: "{{steps.seed.outputs.result}}"
+    - - name: print
+        template: print-output
+
+  - name: gen-random-seed
+    script:
+      image: python:alpine3.6
+      command: [python]
+      source: |
+        import random
+        print(random.sample(range(1,100), {{workflow.parameters.iterations}}))
+
+  - name: salmon-dna69
+    inputs:
+      parameters:
+      - name: rand-seed
+    container:
+      image: quay.io/onyiny_ang/salmon-tsp:dna69-canary
+      command: [sh, -xc]
+      args:
+      - |
+        R='{{inputs.parameters.rand-seed}}';
+        echo $R > /SalmonTSP/randomseed.txt
+        cd /SalmonTSP
+        ./Salmon | tee -a /mnt/vol/$R-dna69
+        mv salmon1.txt /mnt/vol/$R-dna69.txt
+      volumeMounts:
+      - name: workdir
+        mountPath: /mnt/vol
+
+  - name: process-results
+    inputs:
+      parameters:
+      - name: rand-seed
+    script:
+      image: python:alpine3.6
+      command: [python]
+      source: |
+        import random
+        import sys
+        import os
+        from shutil import copyfile
+
+        path = '/mnt/vol/'
+        os.chdir(path)
+        best = sys.maxsize
+        seedtrack = ""
+        total = 0
+        for r in {{inputs.parameters.rand-seed}}:
+          filename = str(r)+"-dna69.txt"
+          try:
+            with open(filename) as f:
+              value = float(f.readline().split().pop())
+              if value < best:
+                best = value
+                seedtrack = str(r)
+              total+=value
+          except:
+            print("Failed to open "+str(r)+"-dna69.txt")
+        average = total/(len({{inputs.parameters.rand-seed}}))
+        copyfile(seedtrack+"-dna69.txt", "result.txt")
+        with open('result.txt', 'a') as g:
+            g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
+          g.close()
+      volumeMounts:
+      - name: workdir
+        mountPath: /mnt/vol
+
+  - name: print-output
+    container:
+      image: alpine:latest
+      command: [sh, -c]
+      args: ["cat /mnt/vol/result.txt"]
+      volumeMounts:
+      - name: workdir
+        mountPath: /mnt/vol
+

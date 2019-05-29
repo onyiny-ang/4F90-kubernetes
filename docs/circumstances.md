@@ -24,21 +24,21 @@ parallelized system.  With the growth of new workflow practices such as streamin
 data, science gateways, and more “dynamic” research using lambda-like functions,
 academic research infrastructure is being pushed to support a variety of workloads
 that aren't optimized for the existing infrastructure. Several solutions have developed
-over recent years to address the change in demands (Charlie Cloud, Singularity)[1][2],
+over recent years to address the change in demands ([Charlie Cloud](), [Singularity](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177459))[1][2],
 each with their own strengths and pitfalls.
 
 Kubernetes, is an opensource container orchestration tool that has gained wide
-popularity in the industry. Based on Google's internal tool Borg, it was released as an
+spread popularity in the industry. Based on Google's internal tool [Borg](https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/)[3], it was released as an
 opensource tool in 2011 and has become the industry standard for container orchestration.
-Becaues of it's wide appeal and cloud agnosticism, investigating the usefulness of
+Because of it's wide appeal and cloud agnosticism, investigating the usefulness of
 Kubernetes for research purposes has merit. It has been shown to have success in the
-machine learning and AI space and is even paramount in running jobs from the Large Hadron
-Collider through CERN. It seems that Kubernetes could help academic research computing
-effectively manage and provide solutions for the changing needs of researchers, but
-at what cost? This paper will investigate Kubernetes repurposed as a research tool,
-test it's effectiveness for running Bioinformatics algorithms and give a broad synopsis
-of it's utility for research computing. It will also outline painpoints that are known
-and that were encountered throughout the investigation.
+machine learning and AI space and is paramount to filtering and processing data generated
+from the Large Hadron Collider through CERN. It seems that Kubernetes could help academic
+research computing effectively manage and provide solutions for the changing needs of
+researchers, but at what cost? This paper will investigate Kubernetes repurposed as a
+research tool, test it's effectiveness for running Bioinformatics algorithms and give a
+broad synopsis of it's utility for research computing. It will also outline painpoints
+that are known and that were encountered throughout the investigation.
 ```
 
 ## Research under a Canadian Principal Investigator
@@ -62,9 +62,7 @@ Canada.
 For more information on using a Compute Canada RAS, see the
 [Resources](resources.md) documentation.
 
-There are situations where launching a Kubernetes deployment on bare metal may make sense
-(for example: in order to keep sensitive data on premise, exploring Kubernetes or creating
-a proof of concept that specifically involves running Kubernetes on bare metal or if you are financially
+There are situations where launching a Kubernetes deployment on bare metal or on private cloud insstances with Openstack may make sense, (for example: in order to keep sensitive data on premise, investigating/exploring Kubernetes or creating a proof of concept that specifically involves running Kubernetes on bare metal/openstack or if you are financially
 unable to use the public cloud (at present GKE offers $400 CAD credit for a 1
 year period which should be sufficient for a relatively short, resource non-intensive research project),
 but it is very likely much more time consuming than it is worth to get Kubernetes up and running as
@@ -73,3 +71,4 @@ an individual researcher without extensive experience or connections to the Kube
 Ideally, Kubernetes will already be running and someone with expertise will be managing
 the system so researchers can focus on developing and containerizing algorithms, and workflows--which
 has its own learning curve, but is much more beneficial to invest time in learning.
+
