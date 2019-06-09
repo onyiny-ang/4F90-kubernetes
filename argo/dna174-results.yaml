@@ -47,7 +47,7 @@ spec:
       parameters:
       - name: rand-seed
     container:
-      image: quay.io/onyiny_ang/salmon-tsp:dna174-canary
+      image: quay.io/onyiny_ang/salmon-tsp:dna174-beta
       command: [sh, -xc]
       args:
       - |
@@ -93,7 +93,7 @@ spec:
         copyfile(seedtrack+"-dna174.txt", "result.txt")
         with open('result.txt', 'a') as g:
             g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
-          g.close()
+            g.close()
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol

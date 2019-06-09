@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v2alpha1
+apiVersion: argoproj.io/v2beta1
 kind: Workflow
 metadata:
   generateName: salmon-berlin52
@@ -47,7 +47,7 @@ spec:
       parameters:
       - name: rand-seed
     container:
-      image: quay.io/onyiny_ang/salmon-tsp:berlin-canary
+      image: quay.io/onyiny_ang/salmon-tsp:berlin-beta
       command: [sh, -xc]
       args:
       - |
