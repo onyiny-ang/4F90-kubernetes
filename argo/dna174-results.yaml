@@ -90,10 +90,10 @@ spec:
           except:
             print("Failed to open "+str(r)+"-dna174.txt")
         average = total/(len({{inputs.parameters.rand-seed}}))
-        copyfile(seedtrack+"-dna174.txt", "result.txt")
-        with open('result.txt', 'a') as g:
-            g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
-            g.close()
+        copyfile(seedtrack+"-dna174.txt", "result-dna128.txt")
+        with open('result-dna128.txt', 'a') as g:
+          g.write("\nThe average of best paths found in 30 runs was: "+str(average)+"\n The seeds used were: "+str({{inputs.parameters.rand-seed}}))
+          g.close()
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol
@@ -102,7 +102,7 @@ spec:
     container:
       image: alpine:latest
       command: [sh, -c]
-      args: ["cat /mnt/vol/result.txt"]
+      args: ["cat /mnt/vol/result-dna128.txt"]
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol
