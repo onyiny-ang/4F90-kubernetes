@@ -47,7 +47,7 @@ spec:
       parameters:
       - name: rand-seed
     container:
-      image: quay.io/onyiny_ang/salmon-tsp:dna67-beta
+      image: quay.io/onyiny_ang/salmon-tsp:dna67-latest
       command: [sh, -xc]
       args:
       - |
