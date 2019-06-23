@@ -38,7 +38,7 @@ Kubernetes project from scratch:
 ```
 
 Once the RAS is created, users will be able to create virtual machines with root privileges and use this to launch a Kubernetes deployment with tools like
-[kubespray](https://github.com/kubernetes-sigs/kubespray), [terraform](https://github.com/hashicorp/terraform) and [ansible](https://www.ansible.com/).
+[kubespray](https://github.com/kubernetes-sigs/kubespray), [terraform](https://github.com/hashicorp/terraform) and [ansible](https://www.ansible.com/) (See [examples](openstack.md)).
 
 There are situations where launching a Kubernetes deployment on bare metal may make sense
 (for example: in order to keep sensitive data on premise, exploring Kubernetes or creating
