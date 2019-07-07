@@ -1,6 +1,4 @@
-# The Salmon Algorithm
-
-## Spawning with Kubernetes
+# The Salmon Algorithm : Spawning with Kubernetes
 
 The goal of this project is to provide a proof of concept (POC) for getting
 Kubernetes up and running on compute resources available through [Compute Canada](https://www.computecanada.ca/) and run a typical bioinformatics workflow on Kubernetes.
