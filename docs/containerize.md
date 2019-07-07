@@ -123,3 +123,5 @@ the workflow in this way makes it very simple to extend the algorithm for
 similar uses. For example, in the case of the salmon algorithm, it is used for
 both TSP as well as DNA Fragment Assembly problems and I use the same
 Dockerfile to build all of my salmon containers (and eventually created an automated CI/CD workflow to build and run them all automatically! That work can be found in my [salmon repo](https://github.com/onyiny-ang/salmon)) and only have to alter the files that are moved into the `/SalmonTSP/temp` folder prior to being copied to the container (see step 4). This makes organizing research much cleaner, while providing other benefits like reproducability (literally anyone else could build or use the same container to test and verify your results and extend your research).
+
+The next step is creating [argo workflows](argo.md).
