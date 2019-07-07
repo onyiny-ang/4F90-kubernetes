@@ -1,5 +1,10 @@
 # Requesting Resources from Compute Canada
 
+## NOTE: It is not advisable for researchers to request resources in order to build their own kubernetes cluster through compute Canada. 
+In some cases it may make sense, but a significant amount of your time will likely be spent just getting the cluster up and running. Consider other options first.   
+
+If you decide to proceed with building your own cluster:
+
 The PI for your project will need to request resources on your behalf. This can
 be done by:
 
