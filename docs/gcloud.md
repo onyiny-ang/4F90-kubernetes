@@ -1,6 +1,6 @@
 # Now for something completely different
 
-To eploy on Google cloud, ignore all of the resource requesting and kubespray/terraform/ansible instructions. Public cloud providers make spinning up Kubernetes clusters comparatively simple.
+To deploy Kubernetes on Google cloud, ignore all of the resource requesting and kubespray/terraform/ansible instructions. Public cloud providers make spinning up Kubernetes clusters comparatively simple.
 You can sign up for free and get $300USD free credit to play with.
 [Download the gcloud CLI](https://cloud.google.com/sdk/). You can do this on Linux/Mac
 with:
