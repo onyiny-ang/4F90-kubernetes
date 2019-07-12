@@ -19,8 +19,7 @@ This involves several steps:
 
 All of these steps are specific to a particular [set of circumstances](docs/circumstances.md), but it is
 hoped that this POC will prove useful to other
-researchers or professionals considering the use of Kubernetes to create
-similar style workflows.
+researchers or professionals considering using Kubernets to run research workflows.
 
 
 
