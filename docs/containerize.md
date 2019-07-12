@@ -1,6 +1,6 @@
-# Containerizing your algorithm with Docker
+# Containerizing your algorithm with Docker :whale:
 
-Containers are lightweight blah blah blah
+A container is a lightweight unit of software that holds packaged ready-to-deploy parts of applications that are able to run quickly and reliably across computing environments. With the rise of cloud computing and innovation from cloud providers to simplify workload deployment, as well as the Linux Foundation establishing the Open Container Initiative to promote a set of common, minimal, open standards and specifications around container technology, containerization has become increasingly relevant to both researchers and systems administrators of research institutions.
 
 Let's take a look at the container for the salmon algorithm:
 
