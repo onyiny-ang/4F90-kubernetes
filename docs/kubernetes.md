@@ -138,6 +138,43 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-Follow the [steps here](https://github.com/kubernetes-sigs/kubespray/blob/master/contrib/terraform/openstack/README.md#kubernetes) to set up Kubernetes.
+## Set Up Kubernetes :tada:
 
+### Set up kubectl 
+1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) on your workstation
 
+2. List Kubernetes certificates & keys:
+```
+ssh centos@[node-nf-ip] 
+cd /etc/ssl/etcd/ssl/
+```
+4. Get `admin`'s certificates and keys: :lock:
+```
+sudo cat /etc/ssl/etcd/ssl/admin-kube-master-1-key.pem > admin-key.pem
+sudo cat /etc/ssl/etcd/ssl/admin-kube-master-1.pem > admin.pem
+sudo cat /etc/ssl/etcd/ssl/ca.pem > ca.pem
+```
+
+Exit back into the controller (or bastion) node that you launched kubespray from
+
+5. Configure kubectl:
+```ShellSession
+$ kubectl config set-cluster default-cluster --server=https://[master-internal-ip]:6443 \
+    --certificate-authority=ca.pem
+
+$ kubectl config set-credentials default-admin \
+    --certificate-authority=ca.pem \
+    --client-key=admin-key.pem \
+    --client-certificate=admin.pem
+
+$ kubectl config set-context default-system --cluster=default-cluster --user=default-admin
+$ kubectl config use-context default-system
+```
+6. Check it:
+```
+kubectl version
+```
+
+### Now your Kubernetes cluster is up and running! :running: :tada: :tada: :tada:
+
+Next checkout how to [Containerize the salmon algorithm](containerize.md) :whale:
