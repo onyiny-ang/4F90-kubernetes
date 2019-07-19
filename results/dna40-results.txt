@@ -1,0 +1,8 @@
+The length of the best path is 11478
+It occurred first in generation 110
+This program took 8.13 seconds to complete.
+The best path is 32 35 8 7 1 21 30 36 19 24 38 29 28 11 34 23 2 31 37 4 17 22 26 6 14 20 39 27 13 15 16 18 12 5 25 10 3 0 33 9
+The average of best paths found in 30 runs was: 11378.2
+The seeds used were: [94, 45, 89, 76, 35, 56, 2, 73, 98, 7, 60, 19, 30, 95, 91, 71, 57, 25, 86, 53, 84, 29, 9, 67, 75, 90, 72, 65, 47, 31]
+
+Container tag: be02525
